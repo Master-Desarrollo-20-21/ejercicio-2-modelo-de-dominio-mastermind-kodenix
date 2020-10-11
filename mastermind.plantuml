@@ -1,0 +1,30 @@
+@startuml MasterMind
+
+Mastermind *--> Board
+
+Board *--> "1..12" ResultColorCombinationPlayed
+Board *--> "1" SecretColorCombination
+Board *--> "1..12" ColorCombinationPlayed
+
+ResultColorCombinationPlayed --> SecretColorCombination
+ResultColorCombinationPlayed --> ColorCombinationPlayed
+
+ColorCombination ^--ColorCombinationPlayed
+ColorCombination ^--SecretColorCombination 
+
+ColorCombination *--> "5" Color
+Color ^-- Red
+Color ^-- Green
+Color ^-- Yellow
+Color ^-- Blue
+Color ^-- White
+Color ^-- Black
+Color ^-- Orange
+Color ^-- Brown
+
+ResultColorCombinationPlayed *--> "0..5" ResultColor
+ResultColor ^-- ResultBlack
+ResultColor ^-- ResultWhite
+
+
+@enduml
